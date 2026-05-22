@@ -145,9 +145,9 @@ flutter run
 ---
 
 # screanShots
+<img src="assets/screenshots/dashboard.png" width="300"/>
+<img src="assets/screenshots/history.png" width="300"/>
+<img src="assets/screenshots/form.png" width="300"/>
 
-![Dashboard](assets/screenshots/dashboard.png)
-![History](assets/screenshots/history.png)
-![NewCalcForm](assets/screenshots/form.png)
 
 *Built with ❤️ using Flutter — © 2026 Hiraokii*
