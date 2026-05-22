@@ -40,6 +40,7 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (context) => di.sl<HistoryCubit>()..getHistory()),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
           extendBodyBehindAppBar: true,
           extendBody: true,

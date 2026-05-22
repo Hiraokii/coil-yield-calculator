@@ -144,4 +144,10 @@ flutter run
 
 ---
 
+# screanShots
+
+![Dashboard](assets/screenshots/dashboard.png)
+![History](assets/screenshots/history.png)
+![NewCalcForm](assets/screenshots/form.png)
+
 *Built with ❤️ using Flutter — © 2026 Hiraokii*
