@@ -39,6 +39,26 @@ class Header extends StatelessWidget {
               fit: BoxFit.contain,
             ),
           ),
+          Positioned(
+            right: 18,
+            top: 47,
+            child: Opacity(
+              opacity: 0.15,
+              child: Transform.rotate(
+                angle: 0.06,
+                child: Transform.flip(
+                  flipX: false,
+                  flipY: false,
+                  child: Image.asset(
+                    'assets/coil_blue.png',
+                    width: 200,
+                    height: 300,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

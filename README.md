@@ -28,7 +28,10 @@ It calculates the **estimated number of parts** that can be produced from a meta
 The app uses the standard coil length formula to estimate total material length, then divides by the pitch to obtain the part count:
 
 ```
-Coil Length (mm) = π × (OD² - ID²) / (4 × thickness)
+outerRadius     = OD / 2
+innerRadius     = ID / 2
+
+Coil Length (mm) = π × (outerRadius² - innerRadius²) / thickness
 Number of Parts  = Coil Length / Pitch
 ```
 
@@ -95,7 +98,10 @@ flutter run
 コイルの全長を算出する標準的な計算式を用い、その結果をピッチで割ることで部品数を導きます。
 
 ```
-コイル全長 (mm) = π × (外径² - 内径²) / (4 × 板厚)
+外半径 = 外径 / 2
+内半径 = 内径 / 2
+
+コイル全長 (mm) = π × (外半径² - 内半径²) / 板厚
 部品数 = コイル全長 ÷ ピッチ
 ```
 
