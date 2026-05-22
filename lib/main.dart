@@ -6,12 +6,13 @@ import 'package:coil_yield_calculator/features/dashboard/presentation/pages/bott
 import 'package:coil_yield_calculator/features/dashboard/presentation/pages/dashboard.dart';
 import 'package:coil_yield_calculator/features/dashboard/presentation/pages/settings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await di.init();
 
   runApp(MyApp());
@@ -27,11 +28,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int menuIndex = 0;
 
-  List<Widget> pages = [
-    Dashboard().animate().fade(duration: 500.ms),
-    History().animate().fade(duration: 500.ms),
-    Settings().animate().fade(duration: 500.ms),
-  ];
+  List<Widget> pages = [Dashboard(), History(), Settings()];
 
   @override
   Widget build(BuildContext context) {
@@ -44,15 +41,6 @@ class _MyAppState extends State<MyApp> {
       ],
       child: MaterialApp(
         home: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            shadowColor: Colors.transparent,
-            elevation: 0,
-            actions: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
-              IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
-            ],
-          ),
           extendBodyBehindAppBar: true,
           extendBody: true,
 
@@ -73,7 +61,15 @@ class _MyAppState extends State<MyApp> {
                 colors: [Color(0xFF0D47A1), Colors.black],
               ),
             ),
-            child: SafeArea(child: pages[menuIndex]),
+            child: SafeArea(
+              child: KeyedSubtree(
+                key: ValueKey(menuIndex),
+                child: pages[menuIndex]
+                    .animate()
+                    .fade(duration: 500.ms)
+                    .slideY(begin: 0.05, end: 0),
+              ),
+            ),
           ),
         ),
       ),
