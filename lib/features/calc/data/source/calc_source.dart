@@ -1,11 +1,9 @@
 import 'package:coil_yield_calculator/features/calc/data/models/calc_model.dart';
 import 'package:coil_yield_calculator/features/calc/domain/usecases/last_calc.dart';
-import 'package:coil_yield_calculator/features/calc/presentation/dto/calc_dto.dart';
 import 'dart:math';
 
 import 'package:hive_ce/hive.dart';
 
-import 'package:coil_yield_calculator/core/usecases/usecase.dart';
 
 abstract class ICalcSource {
   Future<CalcModel> calculateYield(CalcModel model);

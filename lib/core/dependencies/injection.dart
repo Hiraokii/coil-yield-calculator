@@ -9,7 +9,6 @@ import 'package:coil_yield_calculator/features/calc/presentation/bloc/last_calc_
 import 'package:coil_yield_calculator/features/calc/presentation/cubit/add_calc_cubit.dart';
 import 'package:coil_yield_calculator/features/calc/presentation/cubit/history_cubit.dart';
 import 'package:get_it/get_it.dart';
-import 'package:hive_ce/hive.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 
 final sl = GetIt.instance;

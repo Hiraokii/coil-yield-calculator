@@ -1,4 +1,3 @@
-import 'package:coil_yield_calculator/core/shared/failures/failure.dart';
 import 'package:coil_yield_calculator/core/usecases/usecase.dart';
 import 'package:coil_yield_calculator/features/calc/domain/entities/calc_entity.dart';
 import 'package:coil_yield_calculator/features/calc/domain/usecases/failures/calc_failure.dart';

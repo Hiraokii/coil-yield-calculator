@@ -1,9 +1,8 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:coil_yield_calculator/features/calc/domain/entities/calc_entity.dart';
 import 'package:coil_yield_calculator/features/calc/domain/usecases/get_history.dart';
 import 'package:coil_yield_calculator/features/calc/domain/usecases/last_calc.dart';
 import 'package:coil_yield_calculator/features/calc/domain/usecases/clear_history.dart';
-import 'package:meta/meta.dart';
 
 part 'history_state.dart';
 

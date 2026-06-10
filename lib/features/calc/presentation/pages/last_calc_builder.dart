@@ -1,5 +1,3 @@
-import 'package:coil_yield_calculator/core/dependencies/injection.dart';
-import 'package:coil_yield_calculator/features/calc/domain/usecases/last_calc.dart';
 import 'package:coil_yield_calculator/features/calc/presentation/bloc/last_calc_bloc.dart';
 import 'package:coil_yield_calculator/features/calc/presentation/widgets/last_calculation_card.dart';
 import 'package:flutter/material.dart';

@@ -1,8 +1,6 @@
-import 'package:bloc/bloc.dart';
 import 'package:coil_yield_calculator/features/calc/domain/usecases/calculate_yield.dart';
 import 'package:coil_yield_calculator/features/calc/presentation/dto/calc_dto.dart';
-import 'package:meta/meta.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 part 'add_calc_state.dart';
 
 class AddCalcCubit extends Cubit<AddCalcState> {

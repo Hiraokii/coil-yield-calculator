@@ -1,6 +1,5 @@
 part of 'add_calc_cubit.dart';
 
-@immutable
 sealed class AddCalcState {}
 
 final class AddCalcInitial extends AddCalcState {}
