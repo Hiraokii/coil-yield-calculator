@@ -9,7 +9,7 @@ import 'package:dartz/dartz.dart';
 
 class CalcRepoImp implements ICalcRepo {
   final ICalcSource _source;
-  CalcRepoImp({required source}) : _source = source;
+  CalcRepoImp({required ICalcSource source}) : _source = source;
   @override
   ReturnFuture<CalcEntity> calculateYield(CalcParams params) async {
     final model = params.toModel();
@@ -35,6 +35,16 @@ class CalcRepoImp implements ICalcRepo {
       return Right(result);
     } on Exception {
       return Left(CalcFailure(errorMsg: 'We couldnt get the historical data'));
+    }
+  }
+
+  @override
+  ReturnFuture<void> clearHistory(NoParams params) async {
+    try {
+      await _source.clearHistory(params);
+      return Right(null);
+    } on Exception {
+      return Left(CalcFailure(errorMsg: 'Failed to clear history'));
     }
   }
 }

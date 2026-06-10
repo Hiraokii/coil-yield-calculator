@@ -7,4 +7,5 @@ abstract class ICalcRepo {
   ReturnFuture<CalcEntity> calculateYield(CalcParams params);
   ReturnFuture<CalcEntity> lastCalc(NoParams params);
   ReturnFuture<List<CalcEntity>> getHistory(NoParams params);
+  ReturnFuture<void> clearHistory(NoParams params);
 }

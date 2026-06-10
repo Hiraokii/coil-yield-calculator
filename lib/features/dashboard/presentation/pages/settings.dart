@@ -7,13 +7,30 @@ class Settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: ElevatedButton(
-        onPressed: () {
-          // Reset HistoryCubit to initial state (clears history)
-          context.read<HistoryCubit>().emit(HistoryInitial());
-        },
-        child: const Text('Reset All Calculations'),
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(0xFF0D47A1), Colors.black],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
+      child: Center(
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            foregroundColor: Colors.blue,
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            elevation: 8,
+          ),
+          onPressed: () {
+            context.read<HistoryCubit>().resetHistory();
+          },
+          child: const Text('Reset All Calculations'),
+        ),
       ),
     );
   }

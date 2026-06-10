@@ -5,23 +5,26 @@ import 'dart:math';
 
 import 'package:hive_ce/hive.dart';
 
+import 'package:coil_yield_calculator/core/usecases/usecase.dart';
+
 abstract class ICalcSource {
   Future<CalcModel> calculateYield(CalcModel model);
   Future<CalcModel> lastCalc(NoParams params);
+  Future<void> clearHistory(NoParams params);
   Future<List<CalcModel>> getHistory(NoParams params);
 }
 
 class CalcSource implements ICalcSource {
   final Box box;
   CalcSource({required this.box});
+
   @override
   Future<CalcModel> calculateYield(CalcModel model) async {
     try {
       final outerRadius = model.outerDiameter / 2;
       final innerRadius = model.innerDiameter / 2;
 
-      final area =
-          ((outerRadius * outerRadius) - (innerRadius * innerRadius)) * pi;
+      final area = ((outerRadius * outerRadius) - (innerRadius * innerRadius)) * pi;
 
       final length = area / model.thickness;
       final pieces = (length / model.pitch).floor();
@@ -35,9 +38,8 @@ class CalcSource implements ICalcSource {
         piecesQnty: pieces,
         materialLength: length,
       );
-      //add to hive box before return
+      // add to hive box before return
       await box.add(result.toMap());
-
       return result;
     } on Exception {
       rethrow;
@@ -45,13 +47,18 @@ class CalcSource implements ICalcSource {
   }
 
   @override
-  Future<CalcModel> lastCalc(params) async {
+  Future<CalcModel> lastCalc(NoParams params) async {
     if (box.isEmpty) {
       throw Exception('No calculations history');
     }
-    // Pega o último item adicionado
+    // Get the last added item
     final result = box.getAt(box.length - 1);
     return CalcModel.fromMap(Map<dynamic, dynamic>.from(result as Map));
+  }
+
+  @override
+  Future<void> clearHistory(NoParams params) async {
+    await box.clear();
   }
 
   @override
