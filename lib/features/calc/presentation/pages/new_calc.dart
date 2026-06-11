@@ -6,6 +6,7 @@ import 'package:coil_yield_calculator/features/calc/presentation/bloc/last_calc_
 import 'package:coil_yield_calculator/features/calc/presentation/cubit/add_calc_cubit.dart';
 import 'package:coil_yield_calculator/features/calc/presentation/cubit/history_cubit.dart';
 import 'package:coil_yield_calculator/features/calc/presentation/dto/calc_dto.dart';
+import 'package:coil_yield_calculator/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -54,7 +55,7 @@ class _NewCalcState extends State<NewCalc> {
           if (state is AddCalcSuccess) {
             ScaffoldMessenger.of(
               context,
-            ).showSnackBar(SnackBar(content: Text('New calc added')));
+            ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.addNewCalc)));
             //trigger the lastcalc bloc
             context.read<LastCalcBloc>().add(LastCalcRequested());
             context.read<HistoryCubit>().getHistory();
@@ -87,26 +88,26 @@ class _NewCalcState extends State<NewCalc> {
                         children: [
                           _textField(
                             controller: outerController,
-                            prefix: 'Outer diameter:',
-                            sufix: 'mm',
+                            prefix: AppLocalizations.of(context)!.outerDiameterLabel,
+                            sufix: AppLocalizations.of(context)!.mm,
                             icon: Icon(Icons.trip_origin),
                           ),
                           _textField(
                             controller: innerController,
-                            prefix: 'Inner diameter:',
-                            sufix: 'mm',
+                            prefix: AppLocalizations.of(context)!.innerDiameterLabel,
+                            sufix: AppLocalizations.of(context)!.mm,
                             icon: Icon(Icons.radio_button_unchecked),
                           ),
                           _textField(
                             controller: thicknessController,
-                            prefix: 'Thickness:',
-                            sufix: 'mm',
+                            prefix: AppLocalizations.of(context)!.thicknessLabel,
+                            sufix: AppLocalizations.of(context)!.mm,
                             icon: Icon(Icons.height),
                           ),
                           _textField(
                             controller: pitchController,
-                            prefix: 'Pitch:',
-                            sufix: 'mm',
+                            prefix: AppLocalizations.of(context)!.pitchLabel,
+                            sufix: AppLocalizations.of(context)!.mm,
                             icon: Icon(Icons.space_bar),
                           ),
                           SizedBox(
@@ -114,8 +115,8 @@ class _NewCalcState extends State<NewCalc> {
                                 ? CircularProgressIndicator()
                                 : CallToActionButton(
                                     text: loading
-                                        ? 'Calculating...'
-                                        : 'Calculate Yield',
+                                        ? AppLocalizations.of(context)!.calculating
+                                        : AppLocalizations.of(context)!.calculateYield,
                                     action: () {
                                       final CalcDto dto = CalcDto(
                                         innerDiameter: innerController.text,

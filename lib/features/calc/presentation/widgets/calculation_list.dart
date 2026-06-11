@@ -1,4 +1,5 @@
 import 'package:coil_yield_calculator/features/calc/domain/entities/calc_entity.dart';
+import 'package:coil_yield_calculator/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class CalculationsList extends StatelessWidget {
@@ -13,14 +14,14 @@ class CalculationsList extends StatelessWidget {
         return ListTile(
           leading: Image.asset('assets/coil_blue.png'),
           title: Text(
-            '${list[index].outerDiameter}mm/${list[index].innerDiameter}mm',
+            '${list[index].outerDiameter}${AppLocalizations.of(context)!.mm}/${list[index].innerDiameter}${AppLocalizations.of(context)!.mm}',
             style: TextStyle(color: Colors.white),
           ),
           subtitle: Text(
             '${list[index].date.year}/${list[index].date.month}/${list[index].date.day}',
           ),
           trailing: Text(
-            '${list[index].piecesQnty} pcs',
+            '${list[index].piecesQnty}${AppLocalizations.of(context)!.pcs}',
             style: TextStyle(color: Colors.white, fontSize: 18),
           ),
         );

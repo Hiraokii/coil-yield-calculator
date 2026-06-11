@@ -1,3 +1,4 @@
+import 'package:coil_yield_calculator/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:coil_yield_calculator/features/calc/presentation/cubit/history_cubit.dart';
@@ -29,7 +30,7 @@ class Settings extends StatelessWidget {
           onPressed: () {
             context.read<HistoryCubit>().resetHistory();
           },
-          child: const Text('Reset All Calculations'),
+          child:  Text(AppLocalizations.of(context)!.resetButton),
         ),
       ),
     );

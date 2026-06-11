@@ -1,4 +1,5 @@
 import 'package:coil_yield_calculator/core/style/header_style.dart';
+import 'package:coil_yield_calculator/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
@@ -17,12 +18,15 @@ class Header extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Coil Yield Calculator', style: HeaderStyle.h1()),
+                Text(
+                  AppLocalizations.of(context)!.headerTitle,
+                  style: HeaderStyle.h1(),
+                ),
 
                 const SizedBox(height: 4),
 
                 Text(
-                  'Estimate roll length and part quantity',
+                  AppLocalizations.of(context)!.headerSubtitle,
                   style: HeaderStyle.h6(),
                 ),
               ],

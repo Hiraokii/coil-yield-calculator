@@ -2,6 +2,7 @@ import 'package:coil_yield_calculator/core/style/header_style.dart';
 import 'package:coil_yield_calculator/core/widgets/call_to_action_button.dart';
 import 'package:coil_yield_calculator/features/calc/domain/entities/calc_entity.dart';
 import 'package:coil_yield_calculator/features/calc/presentation/pages/new_calc.dart';
+import 'package:coil_yield_calculator/l10n/app_localizations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -41,7 +42,10 @@ class LastCalculationCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Last Calculation', style: HeaderStyle.h2()),
+                  Text(
+                    AppLocalizations.of(context)!.lastCalculation,
+                    style: HeaderStyle.h2(),
+                  ),
                   entity != null
                       ? Text(
                           '${entity!.date.year}/${entity!.date.month.toString().padLeft(2, '0')}/${entity!.date.day.toString().padLeft(2, '0')}',
@@ -60,7 +64,7 @@ class LastCalculationCard extends StatelessWidget {
                         SizedBox(
                           width: 100,
                           child: Text(
-                            'Estimated Pieces',
+                            AppLocalizations.of(context)!.estimatedPieces,
                             style: HeaderStyle.h6(),
                           ),
                         ),
@@ -80,7 +84,7 @@ class LastCalculationCard extends StatelessWidget {
                                     )
                                   : _buildLoadingDots(),
                               Text(
-                                ' pcs',
+                                AppLocalizations.of(context)!.pcs,
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Colors.white,
@@ -99,7 +103,7 @@ class LastCalculationCard extends StatelessWidget {
                         SizedBox(
                           width: 100,
                           child: Text(
-                            'Total Roll Length',
+                            AppLocalizations.of(context)!.totalRollLength,
                             style: HeaderStyle.h6(),
                           ),
                         ),
@@ -120,7 +124,7 @@ class LastCalculationCard extends StatelessWidget {
                                     )
                                   : _buildLoadingDots(),
                               Text(
-                                ' m',
+                                AppLocalizations.of(context)!.m,
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Colors.white,
@@ -136,7 +140,7 @@ class LastCalculationCard extends StatelessWidget {
               ),
               Padding(padding: EdgeInsetsGeometry.all(8)),
               CallToActionButton(
-                text: 'New Calculation',
+                text: AppLocalizations.of(context)!.newCalculation,
                 action: () {
                   showCupertinoModalPopup(
                     context: context,

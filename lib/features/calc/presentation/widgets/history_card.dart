@@ -1,5 +1,6 @@
 import 'package:coil_yield_calculator/features/calc/domain/entities/calc_entity.dart';
 import 'package:coil_yield_calculator/features/calc/presentation/widgets/calculation_list.dart';
+import 'package:coil_yield_calculator/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class HistoryCard extends StatelessWidget {
@@ -15,7 +16,7 @@ class HistoryCard extends StatelessWidget {
           child: Align(
             alignment: AlignmentGeometry.centerStart,
             child: Text(
-              'Recent Calculations',
+              AppLocalizations.of(context)!.recentCalculations,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18,
@@ -39,7 +40,7 @@ class HistoryCard extends StatelessWidget {
                   ? SizedBox(
                       width: double.infinity,
                       child: Text(
-                        'No calculations available yet',
+                        AppLocalizations.of(context)!.noCalculations,
                         style: TextStyle(color: Colors.white),
                         textAlign: TextAlign.center,
                       ),
